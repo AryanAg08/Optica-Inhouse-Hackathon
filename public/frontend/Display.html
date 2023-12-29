@@ -53,9 +53,6 @@
             display: flex;
             justify-content: space-evenly;
                 }
-                form{
-                    border: 3px solid white;
-                }
     </style>
 </head>
 <body>
@@ -68,10 +65,14 @@
     <div id="buttons">
 <button type="button" id="send-email-btn">Send Email</button>
 <button type="button" id="delete-data-btn">Delete Data</button>
-    </div>
-        
+    </div> 
     </form>
 
+    <h1 class="heading" style="margin-top: 50px;">Schedule the email</h1>
+    <div style="text-align: center;">
+        <button onclick="redirectToPage1()" id="service1">Send emails at one particular time  </button>
+        <button onclick="redirectToPage2()" id="service2" >Send emails every particular hour</button>    
+    </div>
     </div>
 
     <script src="./displayData.js"></script> 

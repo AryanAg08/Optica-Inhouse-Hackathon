@@ -41,7 +41,7 @@ async function SendMail(email) {
 
   }, (err, info) => {
     if (err) throw err;
-    console.log(`Mail sent to ${email}: ${info.response}`);
+    console.log(`Mail sent to ${email},${name}: ${info.response}`);
   });
 }
 

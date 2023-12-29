@@ -190,7 +190,7 @@ app.post("/getPArticularDate", async (req, res) => {
             const tt = await T1.findOneAndUpdate({
               Email: mail,
              },{
-              Email: data[i],
+              Email: mail,
               TimeStamp: timestamp,
              },{
               upsert: true,

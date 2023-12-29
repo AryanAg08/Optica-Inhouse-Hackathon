@@ -4,7 +4,7 @@ const { SendMail } = require("./sendmail");
 async function ParticularDate() {
     const schedule = require("node-schedule");
 
-    const getTimestamp = new Date().getTime();
+    const getTimestampInSeconds = Math.floor(new Date().getTime() / 1000);
 
     var j = schedule.scheduleJob("*/1 * * * *", async function () {
         console.log("Schedule running");
@@ -12,13 +12,13 @@ async function ParticularDate() {
 
         if (T1) {
             for (ee of T1) {
-                const TimeSt = ee.TimeStamp;
+                const TimeSt = Math.floor(ee.TimeStamp / 1000); // Convert to seconds
                 const Mail = ee.Email;
 
-                if (TimeSt === getTimestamp) {
+                if (TimeSt === getTimestampInSeconds) {
                     console.log("sending mails");
                     console.log(TimeSt);
-                    console.log(getTimestamp);
+                    console.log(getTimestampInSeconds);
                     SendMail(Mail);
                 }
             }

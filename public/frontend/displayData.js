@@ -28,10 +28,10 @@ function displayData(data) {
         return;
     }
 
-    var table = '<table border="1"><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Action</th></tr></thead><tbody>';
+    var table = '<table border="1" rules="all" width="800" style="margin:40px auto"><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Action</th></tr></thead><tbody>';
 
     data.forEach(function(obj, index) {
-        table += '<tr><td>' + obj.Name + '</td><td>' + obj.Email + '</td><td>' + obj.Phone + '</td><td>' + obj.Address + '</td>' +
+        table += '<tr style="text-align:center;padding:1px"><td>' + obj.Name + '</td><td>' + obj.Email + '</td><td>' + obj.Phone + '</td><td>' + obj.Address + '</td>' +
             '<td><input type="checkbox" id="checkbox-' + index + '" class="data-checkbox" value="' + obj._id + '"></td></tr>';
     });
 
@@ -40,7 +40,6 @@ function displayData(data) {
 }
 
 function sendEmail() {
-   // var email = document.getElementById('email').value;
     var checkedCheckboxes = document.querySelectorAll('.data-checkbox:checked');
 
     // if (!email) {

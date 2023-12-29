@@ -129,7 +129,7 @@
         .outter {
             display: flex;
             justify-content: center;
-            margin-top: 30px;
+            margin-top: 200px;
             margin-bottom: 50px;
         }
 
@@ -153,19 +153,50 @@
             document.getElementsByClassName('container2')[0].style.display = "block";
         }
 
-        function doCollectData1()
+        function doCollectData1() 
         {
-           var date = document.getElementById("date").value;
-           var time = document.getElementById("time1").value;
-           alert(date);
-           alert(time);
+            var date = document.getElementById("date").value;
+            var time = document.getElementById("time1").value;
+            var datetimeString = date + 'T' + time;
+            var datetime = new Date(datetimeString);
+            var timestamp = datetime.getTime();
+            alert("Timestamp: " + timestamp);
+            const url = `/getPArticularDate?timestamp=${timestamp}`;
+
+            var checkedCheckboxes = document.querySelectorAll('.data-checkbox:checked');
+            if (checkedCheckboxes.length === 0) {
+                alert('Please select at least one data item.');
+                return;
+            }
+        
+            var dataToSend = [];
+            checkedCheckboxes.forEach(function(checkbox) {
+                dataToSend.push(checkbox.value);
+            });
+        
+            console.log('Selected data IDs to send mail:', dataToSend);
+        
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        alert('Selected mail will be sent successfully.');
+                        location.reload(); 
+                    } else {
+                        alert('Error Sending mail:', xhr.status);
+                    }
+                }
+            };
+            xhr.send(JSON.stringify({ ids: dataToSend }));
+            
         }
-        function doCollectData2()
-        {
-          var time = document.getElementById("time2").value;
-          var gap = document.getElementById("gap").value;
-          alert(time);
-          alert(gap);
+        function doCollectData2() {
+            var time = document.getElementById("time2").value;
+            var gap = document.getElementById("gap").value;
+            alert(time);
+            alert(gap);
         }
 
     </script>

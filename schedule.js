@@ -4,9 +4,10 @@ const { SendMail } = require("./sendmail");
 async function ParticularDate() {
     const schedule = require("node-schedule");
 
-    const getTimestampInSeconds = Math.floor(new Date().getTime() / 1000);
+   
 
     var j = schedule.scheduleJob("*/1 * * * *", async function () {
+         const getTimestampInSeconds = Math.floor(new Date().getTime() / 1000);
         console.log("Schedule running");
         const T1 = await Tt.find();
 

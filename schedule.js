@@ -16,6 +16,9 @@ async function ParticularDate() {
                 const Mail = ee.Email;
 
                 if (TimeSt === getTimestamp) {
+                    console.log("sending mails");
+                    console.log(TimeSt);
+                    console.log(getTimestamp);
                     SendMail(Mail);
                 }
             }

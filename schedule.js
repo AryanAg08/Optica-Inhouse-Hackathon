@@ -15,11 +15,12 @@ async function ParticularDate() {
                 const TimeSt = Math.floor(ee.TimeStamp / 1000); // Convert to seconds
                 const Mail = ee.Email;
 console.log(getTimestampInSeconds);
+                console.log(TimeSt);
                 if (TimeSt == getTimestampInSeconds) {
                     console.log("sending mails");
-                    console.log(TimeSt);
                     
-                    SendMail(Mail);
+                    
+                   await SendMail(Mail);
                 }
             }
         }

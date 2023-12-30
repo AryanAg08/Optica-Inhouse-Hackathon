@@ -148,10 +148,10 @@
             document.getElementsByClassName('container2')[0].style.display = "none";
         }
 
-        function container2Open() {
-            document.getElementsByClassName('container1')[0].style.display = "none";
-            document.getElementsByClassName('container2')[0].style.display = "block";
-        }
+        //function container2Open() {
+            //document.getElementsByClassName('container1')[0].style.display = "none";
+            //document.getElementsByClassName('container2')[0].style.display = "block";
+      //  }
 
         function doCollectData1() 
         {
@@ -192,12 +192,12 @@
             xhr.send(JSON.stringify({ ids: dataToSend }));
             
         }
-        function doCollectData2() {
-            var time = document.getElementById("time2").value;
-            var gap = document.getElementById("gap").value;
-            alert(time);
-            alert(gap);
-        }
+        //function doCollectData2() {
+            //var time = document.getElementById("time2").value;
+            //var gap = document.getElementById("gap").value;
+            //alert(time);
+            //alert(gap);
+        // }
 
     </script>
 </head>
@@ -218,7 +218,6 @@
         <h1 class="heading" style="margin-top: 50px;">Schedule the email</h1>
         <div style="text-align: center;">
             <button onclick="container1Open()" id="service1">Send emails at one particular time </button>
-            <button onclick="container2Open()" id="service2">Send emails every particular hour</button>
         </div>
     </div>
     <div class="outter">
@@ -242,19 +241,7 @@
         <div class="container2">
             <div class="main">
                 <div class="design"> <span class="e">E</span><span class="m">M</span><span class="s">S</span></div>
-                <div class="sign">Email Scheduling Services</div>
-
-                <table>
-                    <tr>
-                        <td>Start timing</td>
-                        <td><input type="time" id="time2"></td>
-                    </tr>
-                    <tr>
-                        <td>Time gap between emails:</td>
-                        <td><input min="1" max="20" type="number" id="gap"></td>
-                    </tr>
-                </table>
-                <button onclick="doCollectData2();">Submit</button>
+                <div class="sign">Email Scheduling 
             </div>
         </div>
     </div>
